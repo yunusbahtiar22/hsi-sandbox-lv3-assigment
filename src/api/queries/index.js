@@ -1,5 +1,6 @@
 import { BASE_URL } from "@/constants";
-import { useInfiniteQuery } from "./use-inifinite-query";
+
+export { useInfiniteQuery } from "./use-inifinite-query";
 
 export const fetcher = (url) =>
   fetch(`${BASE_URL}${url}`).then((r) => r.json());
@@ -9,5 +10,3 @@ export const fetcher = (url) =>
 //   return `/articles?page=${index + 1}&sort=new`;
 // };
 
-
-export { useInfiniteQuery };

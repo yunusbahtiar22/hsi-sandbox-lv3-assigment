@@ -1,6 +1,6 @@
 import { fetcher } from "@/api/queries";
 import Layout from "@/components/layout";
-import PostDetail from "@/components/post-detail";
+import PostDetail from "@/components/detail/post-detail";
 
 export default function DetailPage({ post }) {
   return (

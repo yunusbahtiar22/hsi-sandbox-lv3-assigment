@@ -1,7 +1,7 @@
 import Layout from "@/components/layout";
 import { fetcher } from "@/api/queries";
 import { SWRConfig } from "swr";
-import PostList from "@/components/post-list";
+import PostList from "@/components/post/post-list";
 import { unstable_serialize } from "swr/infinite";
 
 export default function Home({ fallback }) {

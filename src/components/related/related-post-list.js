@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useInfiniteQuery } from "@/api/queries";
 import { fetcher } from "@/api/queries";
 import Card from "./card";
-import CardSkeleton from "./card-skeleton";
+import CardSkeleton from "../base/card-skeleton";
 
 export default function RelatedPostList({ categoryId, postId }) {
   const getRelatedKey = (index) =>
@@ -17,9 +17,6 @@ export default function RelatedPostList({ categoryId, postId }) {
       getQueryKey: getRelatedKey,
       queryFn: fetcher,
     });
-
-  // make sure data is server rendered
-  console.log("data -> :", data);
 
   const posts = (data ? [].concat(data) : []).flatMap((item) => {
     if (item) return item.data;

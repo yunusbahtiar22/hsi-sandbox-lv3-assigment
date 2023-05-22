@@ -2,7 +2,7 @@ import Link from "next/link";
 import useSWR from "swr";
 import { fetcher } from "@/api/queries";
 import Card from "./card";
-import CardSkeleton from "./card-skeleton";
+import CardSkeleton from "../base/card-skeleton";
 
 export default function SuggestionsList(props) {
   // const suggestionPage = Math.floor(Math.random() * 3) + 1;
@@ -10,8 +10,6 @@ export default function SuggestionsList(props) {
     `/articles?categoryId=${props.category}&page=1&perPage=2&excludedArticleId=${props.id}`,
     fetcher
   );
-
-  console.log(posts);
 
   return (
     <section>
@@ -27,7 +25,6 @@ export default function SuggestionsList(props) {
             ({ title, summary, thumbnail, author, category, slug }) => (
               <Link key={slug} href={`/${slug}`}>
                 <Card
-                  type="suggestion"
                   title={title}
                   summary={summary}
                   category={category.name}

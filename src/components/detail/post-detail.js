@@ -1,6 +1,6 @@
 import Image from "next/image";
-import SuggestionsList from "./suggestion-list";
-import CardSkeleton from "./card-skeleton";
+import SuggestionsList from "../suggestion/suggestion-list";
+import CardSkeleton from "../base/card-skeleton";
 
 export default function PostDetail({ post }) {
   return (

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useInfiniteQuery } from "@/api/queries";
 import Card from "./card";
 import { useRouter } from "next/router";
-import CardSkeleton from "./card-skeleton";
+import CardSkeleton from "../base/card-skeleton";
 
 export default function PostList(props) {
   const {
@@ -18,15 +18,9 @@ export default function PostList(props) {
   const { data, size, isLoadingMore, isEmpty, isLoading, fetchNextPage } =
     useInfiniteQuery({ getQueryKey: getPostListKey, queryFn: fetcher });
 
-  // data is available here which means server rendered
-  // console.log("data -> :", data);
-
   const posts = (data ? [].concat(data) : []).flatMap((item) => {
     if (item) return item.data;
   });
-
-  // data is available here which means server rendered
-  // console.log("data -> :", data);
 
   const prevDataPage = data?.[size - 1]?.meta.pagination.page;
   const prevDataTotalPage = data?.[size - 1]?.meta.pagination.totalPages;

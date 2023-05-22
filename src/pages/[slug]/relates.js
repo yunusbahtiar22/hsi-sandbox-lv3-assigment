@@ -3,7 +3,7 @@ import Image from "next/image";
 import { fetcher } from "@/api/queries";
 import { SWRConfig } from "swr";
 import { unstable_serialize } from "swr/infinite";
-import RelatedPostList from "@/components/related-post-list";
+import RelatedPostList from "@/components/related/related-post-list";
 
 export default function RelatedPostPage({ currentPost, fallback }) {
   return (
@@ -38,7 +38,6 @@ export async function getServerSideProps(context) {
   const relatedPosts = await fetcher(
     `/articles?categoryId=${currentPost.category.id}&page=1&excludedArticleId=${currentPost.id}`
   );
-  console.log(relatedPosts);
   return {
     props: {
       currentPost,
