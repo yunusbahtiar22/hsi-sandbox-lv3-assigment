@@ -2,8 +2,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-export default function Header({ home }) {
+export default function Header() {
   const router = useRouter();
+  const { pathname } = router;
   const { sort = "new" } = router.query;
 
   return (
@@ -14,7 +15,7 @@ export default function Header({ home }) {
             <Image width={100} height={100} src="/bahram-logo.svg" alt="" />
           </div>
         </Link>
-        {home && (
+        {pathname === "/" && (
           <div className="md:absolute mt-8 md:mt-0">
             <button
               onClick={() => {
